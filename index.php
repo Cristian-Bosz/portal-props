@@ -100,7 +100,7 @@ require_once('config/functions.php');
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="index.php?seccion=editar_perfil">Editar perfil</a></li>
                     
-                    <li><a class="dropdown-item" href="features/logout.php">Cerrar sesión</a></li>
+                    <li><a class="dropdown-item" href="features/logout_feature.php">Cerrar sesión</a></li>
                     
                   </ul>
 
