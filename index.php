@@ -23,10 +23,28 @@ require_once('config/functions.php');
 
 
 
+    <?php
+		if (!isset($_SESSION['usuario'])):
+		?>
+					
+							
+		<?php
+      elseif ($_SESSION['usuario']['tipo_user_id_fk'] == 1):
+      ?>
+
+			<nav>
+			<div class="d-grid gap-2">
+			<a href="panel/panel.php" id="btn-admin" class="btn btn-lg my-2" type="button">Panel de administración</a>
+			</div>
+		  </nav>
+
+		  <?php
+		  endif;
+		  ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container">
-        <Link class="navbar-brand logo" to="/"><i class="bi bi-shop"></i> </Link>
+        <a class="navbar-brand logo" to="/"><i class="bi bi-shop"></i> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -74,15 +92,16 @@ require_once('config/functions.php');
                   <?php
                   elseif  (!empty($_SESSION['usuario']['img_user'])):
                   ?>  
-                  <img src="img/users/<?=($_SESSION['usuario']['img_user'])?>" alt="Avatar de <?=($_SESSION['usuario']['nombre']) ?>" class="figure-img img-fluid  rounded-circle " style="height: 50px; width: 50px;"> 
+                  <img src="assets/users/<?=($_SESSION['usuario']['img_user'])?>" alt="Avatar de <?=($_SESSION['usuario']['nombre']) ?>" class="figure-img img-fluid  rounded-circle " style="height: 50px; width: 50px;"> 
                   <?php
                   endif;
                   ?>
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="index.php?seccion=editar_perfil">Editar perfil</a></li>
+                    
                     <li><a class="dropdown-item" href="features/logout.php">Cerrar sesión</a></li>
-                    <li><hr class="dropdown-divider"></li>
+                    
                   </ul>
 
 
