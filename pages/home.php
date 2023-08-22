@@ -1,3 +1,16 @@
+<?php
+    if ((!empty($_GET['status']) && $_GET['status'] == 'ok') &&
+    (!empty($_GET['accion']) && ($_GET['accion'] == 'creado' || $_GET['accion'] == 'eliminado' || $_GET['accion'] == 'editado'))
+    ):
+    $accion = $_GET['accion'];
+?>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <h3 class="display-6"><strong>¡Bien hecho!</strong> Tu usuario fue <b> <?= $accion ?> </b> exitosamente.</h3>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php
+endif;
+?>
 
   <section>
            <div id="carouselExampleIndicators" class="carousel slide">
@@ -30,4 +43,10 @@
         <span class="visually-hidden">Next</span>
     </button>
     </div>
+    </section>
+
+
+
+    <section class="">
+<h2>¿Como hacemos para continuar conj la pagina?</h2>
     </section>
