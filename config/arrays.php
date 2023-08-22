@@ -2,7 +2,10 @@
 /* barra de navegacion*/
 $navbar = [
 	'Home' => 'home',
-	'About Us' => 'aboutus',
+	'Alquilar' => 'alquilar',
+	'Comprar' => 'comprar',
+	'Vender' => 'vender',
+	'Sobre Nosotros' => 'aboutus',
 ];
 
 ?>
