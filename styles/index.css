@@ -30,7 +30,7 @@ ul, li {
   border-radius: 20px;
 }
 #btn-register{
-  background-color: #43173d;
+    background-color: #43173d;
     border-color: #43173d;
     color: #f6f6f6;
     text-decoration: none;
@@ -38,4 +38,15 @@ ul, li {
 .btn-register:hover{
   background-color: #43173d;
   border: #43173d;
+}
+
+/*navbar*/
+#btn-admin{
+  background-color: #43173d;
+    border-color: #43173d;
+    color: #f6f6f6;
+    text-decoration: none;
+}
+#btn-admin:hover{
+  background-color: #64225b;
 }
