@@ -30,13 +30,13 @@ INSERT INTO usuarios
 VALUES (1,'cristian', 'bösz', 'cristianbosz@hotmail.com', '2000/06/05', '$2y$10$50WxPV0HNkYLaQAnH4ccOuiBjmAjEVoxzJoIt6cNCCjpOK9GHMyPm', 'yo.png', 1);
 
 
-CREATE TABLE IF NOT EXISTS baños (
-    baños_id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS baño (
+    baño_id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
     accesorios_baño VARCHAR(30) NOT NULL
 
 )ENGINE = InnoDB;
 
-INSERT INTO baños
+INSERT INTO baño
 VALUES (1, 'Bañadera'),
        (2, 'Agua caliente'),
        (3, 'Secador de pelo'),
@@ -133,7 +133,6 @@ CREATE TABLE IF NOT EXISTS comprar_prop (
     comprar_prop_id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
     titulo VARCHAR (120) NOT NULL,
     foto VARCHAR (120),
-    video VARCHAR (120),
     descripcion TEXT (1000) NOT NULL,
     precio BIGINT NOT NULL,
     expensas MEDIUMINT,
@@ -143,23 +142,17 @@ CREATE TABLE IF NOT EXISTS comprar_prop (
     baños TINYINT NOT NULL,
     dormitorios TINYINT NOT NULL,
     cocheras TINYINT,
-    antiguedad TINYINT NOT NULL,
-    baños_id_fk INT UNSIGNED NOT NULL,
-    habitaciones_id_fk INT UNSIGNED NOT NULL,
-    cocina_id_fk INT UNSIGNED NOT NULL,
-    exterior_id_fk INT UNSIGNED NOT NULL,
-    estacionamiento_id_fk INT UNSIGNED NOT NULL,
-    entretenimiento_id_fk INT UNSIGNED NOT NULL,
-    calefaccion_id_fk INT UNSIGNED NOT NULL,
-
-    FOREIGN KEY (baños_id_fk) REFERENCES baños(baños_id) ON DELETE CASCADE ON UPDATE CASCADE,   
-    FOREIGN KEY (habitaciones_id_fk) REFERENCES habitaciones(habitaciones_id) ON DELETE CASCADE ON UPDATE CASCADE,   
-    FOREIGN KEY (cocina_id_fk) REFERENCES cocina(cocina_id) ON DELETE CASCADE ON UPDATE CASCADE,   
-    FOREIGN KEY (exterior_id_fk) REFERENCES exterior(exterior_id) ON DELETE CASCADE ON UPDATE CASCADE,  
-    FOREIGN KEY (estacionamiento_id_fk) REFERENCES estacionamiento(estacionamiento_id) ON DELETE CASCADE ON UPDATE CASCADE, 
-    FOREIGN KEY (entretenimiento_id_fk) REFERENCES entretenimiento(entretenimiento_id) ON DELETE CASCADE ON UPDATE CASCADE, 
-    FOREIGN KEY (calefaccion_id_fk) REFERENCES calefaccion(calefaccion_id) ON DELETE CASCADE ON UPDATE CASCADE 
+    antiguedad TINYINT NOT NULL
 )ENGINE = InnoDB;
 INSERT INTO comprar_prop
-VALUES (1,'mansion', '', '', 'Terrible mansion viral papaa', 190000, 500, 20, 25, 4, 3, 4, 1, 50, 1,1,1,1,1,1,1);
+VALUES (1,'mansion','', 'Terrible mansion viral papaa', 190000, 500, 20, 25, 4, 3, 4, 1, 50);
     
+
+
+CREATE TABLE IF NOT EXISTS prop_insumos (
+    prop_insumos_id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    propiedades_caract JSON, 
+    id_propiedad_fk INT UNSIGNED NOT NULL,
+
+    FOREIGN KEY (id_propiedad_fk) REFERENCES comprar_prop(comprar_prop_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB;
