@@ -85,6 +85,8 @@
      
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card-props">
+                            <a href="index.php?seccion=prop_detalle&id=<?= $prop["comprar_prop_id"] ?>">
+                        
                             <div >
                                 <img src="assets/props_comprar/<?=$prop["foto"]?>" alt="" class="property-image">
                             </div>
@@ -97,6 +99,7 @@
                                 <p><b><?=($prop["superficie_total"])?></b> m&sup2; | <b><?=($prop["ambientes"])?></b> ambientes | <b><?=($prop["baños"])?> </b>baños 
                                 </p></div>
                             </div>
+                            </a>
                         </div>
                     </div>
 

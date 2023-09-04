@@ -6,6 +6,7 @@ $cssFiles = [
     './styles/pages/registro.css',
     './styles/pages/home.css',
     './styles/pages/comprar.css',
+    './styles/pages/prop_detalle.css',
     '../styles/panel/panel.css',
     '../styles/panel/listado_comprar.css',
     '../styles/panel/alta_panel.css',
