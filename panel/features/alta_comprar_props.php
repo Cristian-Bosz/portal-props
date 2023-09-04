@@ -22,10 +22,6 @@ if (empty($_POST['precio']) || (trim($_POST['precio']) == '')) {
     $errores['precio'] = 'Ups! Olvidaste escribir el PRECIO';
 }
 
-if (empty($_POST['expensas']) || (trim($_POST['expensas']) == '')) {
-    $errores['expensas'] = 'Ups! Olvidaste escribir el expensas';
-}
-
 if (empty($_POST['superficie_total']) || (trim($_POST['superficie_total']) == '')) {
     $errores['superficie_total'] = 'Ups! Olvidaste escribir el superficie_total';
 }
@@ -46,71 +42,6 @@ if (empty($_POST['dormitorios']) || (trim($_POST['dormitorios']) == '')) {
     $errores['dormitorios'] = 'Ups! Olvidaste escribir el dormitorios';
 }
 
-if (empty($_POST['cocheras']) || (trim($_POST['cocheras']) == '')) {
-    $errores['cocheras'] = 'Ups! Olvidaste escribir el cocheras';
-}
-
-if (empty($_POST['antiguedad']) || (trim($_POST['antiguedad']) == '')) {
-    $errores['antiguedad'] = 'Ups! Olvidaste escribir el antiguedad';
-}
-
-
-// Validación de los checkboxes
-$bañosSeleccionados = [];
-while ($baño = mysqli_fetch_assoc($res_check_baño)) {
-    $checkboxName = 'baño' . $baño['baño_id'];
-    if (isset($_POST[$checkboxName])) {
-        $bañosSeleccionados[] = $baño['baño_id'];
-    }
-}
-
-$habitacionesSeleccionadas = [];
-while ($habitacion = mysqli_fetch_assoc($res_check_habitaciones)) {
-    $checkboxName = 'habitacion' . $habitacion['habitaciones_id'];
-    if (isset($_POST[$checkboxName])) {
-        $habitacionesSeleccionadas[] = $habitacion['habitaciones_id'];
-    }
-}
-
-$cocinaSeleccionadas = [];
-while ($cocina = mysqli_fetch_assoc($res_check_cocina)) {
-    $checkboxName = 'cocina' . $cocina['cocina_id'];
-    if (isset($_POST[$checkboxName])) {
-        $cocinaSeleccionadas[] = $cocina['cocina_id'];
-    }
-}
-
-$exteriorSeleccionadas = [];
-while ($exterior = mysqli_fetch_assoc($res_check_exterior)) {
-    $checkboxName = 'exterior' . $exterior['exterior_id'];
-    if (isset($_POST[$checkboxName])) {
-        $exteriorSeleccionadas[] = $exterior['exterior_id'];
-    }
-}
-
-$estacionamientoSeleccionadas = [];
-while ($estacionamiento = mysqli_fetch_assoc($res_check_estacionamiento)) {
-    $checkboxName = 'estacionamiento' . $estacionamiento['estacionamiento_id'];
-    if (isset($_POST[$checkboxName])) {
-        $estacionamientoSeleccionadas[] = $estacionamiento['estacionamiento_id'];
-    }
-}
-
-$entretenimientoSeleccionadas = [];
-while ($entretenimiento = mysqli_fetch_assoc($res_check_entretenimiento)) {
-    $checkboxName = 'entretenimiento' . $entretenimiento['entretenimiento_id'];
-    if (isset($_POST[$checkboxName])) {
-        $entretenimientoSeleccionadas[] = $entretenimiento['entretenimiento_id'];
-    }
-}
-
-$calefaccionSeleccionadas = [];
-while ($calefaccion = mysqli_fetch_assoc($res_check_calefaccion)) {
-    $checkboxName = 'calefaccion' . $calefaccion['calefaccion_id'];
-    if (isset($_POST[$checkboxName])) {
-        $calefaccionSeleccionadas[] = $calefaccion['calefaccion_id'];
-    }
-}
 
 
 //validar checkbox (los checkbox solo guardan true o false por ende se guardan asi, en este ejemplo guarda 1 o 0)
