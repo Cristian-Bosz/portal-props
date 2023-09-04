@@ -9,8 +9,8 @@ require_once('config/functions.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inmobiliaria</title>
-    <link rel="stylesheet" href="styles/index.css">
-
+    <!-- Incluyo styles.php para cargar los archivos CSS globales -->
+    <?php require_once('styles/styles.php'); ?>
     <!--Bootstrap css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--Bootstrap icons-->
@@ -24,9 +24,9 @@ require_once('config/functions.php');
 
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-light bg-nav">
       <div class="container">
-        <a class="navbar-brand logo" to="/"><i class="bi bi-shop"></i> </a>
+        <a class="navbar-brand logo" to="/"><i class="bi bi-shop" id="text-nav"></i> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,31 +37,28 @@ require_once('config/functions.php');
                     foreach ($navbar as $boton => $url):
             ?>
                         <li class="nav-item mx-4">
-                        <a class="nav-link active" aria-current="page" href="index.php?seccion=<?= $url ?>"><?= $boton ?></a>
+                        <a class="nav-link active fw-bold" id="text-nav" aria-current="page" href="index.php?seccion=<?= $url ?>"><?= $boton ?></a>
                         </li>
             <?php
             endforeach;
             ?>
           </ul>
           <div class="d-flex align-items-center nav-Buttons">
-          <li class="nav-item text-decoration-none dropdown">
+          
                 
             <?php
 						if (!isset($_SESSION['usuario'])):
 						?>
 							
-                  <a class="nav-link dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="text-dark bi bi-person-fill"></i>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="index.php?seccion=login">Iniciar Sesión</a></li>
-                    <li><a class="dropdown-item" href="index.php?seccion=registro">Registrarme</a></li>
-                  </ul>
+                                
+                  <a class="text-decoration-none btn" id="btn-navlogin" href="index.php?seccion=login" role="button">Iniciar Sesión</a>
+                  
+               
         
 						<?php
 						else:
 						?>
-
+<li class="nav-item text-decoration-none dropdown">
 
                   <a class="nav-link dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   		
@@ -87,7 +84,7 @@ require_once('config/functions.php');
                     <?php
                     elseif ($_SESSION['usuario']['tipo_user_id_fk'] == 1):
                     ?>
-                      <li><a class="dropdown-item" id="btn-admin"  href="panel/panel.php">Panel de admin</a></li>
+                      <li><a class="dropdown-item fw-bold" id="btn-admin"  href="panel/panel.php">Panel de admin</a></li>
                     <?php
                     endif;
                     ?>

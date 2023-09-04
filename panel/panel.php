@@ -17,7 +17,8 @@ if(isset($_SESSION['usuario']) && $_SESSION['usuario']['tipo_user_id_fk'] == 2 |
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Props panel</title>
 	<link rel="icon" type="image/png" href="../img/icons/cristal.png" />
-    <link rel="stylesheet" href="../styles/index.css">
+       <!-- Incluyo styles.php para cargar los archivos CSS globales -->
+       <?php require_once('../styles/styles.php'); ?>
 	
     <!--Bootstrap css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
