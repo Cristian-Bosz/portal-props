@@ -1,7 +1,6 @@
 <?php
-  $select_props = 'SELECT comprar_prop_id, titulo, foto, precio, superficie_total, ambientes, baños  
-  FROM comprar_prop
-  WHERE comprar_prop_id;';
+  $select_props = 'SELECT *
+  FROM comprar_prop';
   $resSelect_props = mysqli_query($cnx, $select_props);
 
   
@@ -52,7 +51,7 @@
 
 <section class="container" >
         <div class="row mb-3">
-
+<!--Recorro las propiedades buscadas en el buscador-->
                  <?php
                     if (isset($_SESSION['buscar'])) {
                         foreach ($_SESSION['buscar']['resultados'] as $prop) {
@@ -60,22 +59,32 @@
 
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card-props">
+                        <a href="index.php?seccion=prop_detalle&id=<?= $prop["comprar_prop_id"] ?>" class="text-decoration-none">
                             <div >
                                 <img src="assets/props_comprar/<?=$prop["foto"]?>" alt="" class="property-image">
                             </div>
 
                             <div class="text">
                                 <p class="h3"> <?= ($prop["titulo"])?> </p>
-                                <p class="prop-precio fw-bold"> <?= number_format($prop["precio"], 0, ',', '.') ?> USD </p>
+                                <p class="prop-precio fw-bold"> <?= number_format($prop["precio"], 0, ',', '.') ?> USD 
+                                <span class="text-expensas">
+                                    <?php
+                                        if ($prop["expensas"] > 0) {
+                                            echo '+ ' . number_format($prop["expensas"], 0, ',', '.') . ' ARS' . ' expensas';
+                                        }
+                                    ?>
+                                </span>
+                                </p>
 
                                 <div class="prop-details">
                                 <p><b><?=($prop["superficie_total"])?></b> m&sup2; | <b><?=($prop["ambientes"])?></b> ambientes | <b><?=($prop["baños"])?> </b>baños 
                                 </p></div>
                             </div>
+                        </a>
                         </div>
                     </div>
                         
-<!--RECORRO LOS PRODUCTOS DE LA TIENDA-->
+<!--RECORRO las propiedades-->
 <?php
     }
 }else{
@@ -85,7 +94,7 @@
      
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4">
                         <div class="card-props">
-                            <a href="index.php?seccion=prop_detalle&id=<?= $prop["comprar_prop_id"] ?>">
+                            <a href="index.php?seccion=prop_detalle&id=<?= $prop["comprar_prop_id"] ?>" class="text-decoration-none">
                         
                             <div >
                                 <img src="assets/props_comprar/<?=$prop["foto"]?>" alt="" class="property-image">
@@ -93,7 +102,15 @@
 
                             <div class="text">
                                 <p class="h3"> <?= ($prop["titulo"])?> </p>
-                                <p class="prop-precio fw-bold"> <?= number_format($prop["precio"], 0, ',', '.') ?> USD </p>
+                                <p class="prop-precio fw-bold"> <?= number_format($prop["precio"], 0, ',', '.') ?> USD 
+                                <span class="text-expensas">
+                                    <?php
+                                        if ($prop["expensas"] > 0) {
+                                            echo '+ ' . number_format($prop["expensas"], 0, ',', '.') . ' ARS' . ' expensas';
+                                        }
+                                    ?>
+                                </span>
+                                </p>
 
                                 <div class="prop-details">
                                 <p><b><?=($prop["superficie_total"])?></b> m&sup2; | <b><?=($prop["ambientes"])?></b> ambientes | <b><?=($prop["baños"])?> </b>baños 

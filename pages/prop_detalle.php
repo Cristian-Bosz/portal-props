@@ -12,16 +12,25 @@
         <div class="row">
         <div class="col-12">
              <h2><?=$prop["titulo"]?></h2>
-            <img src="assets/props_comprar/<?=$prop["foto"]?>" alt="imagen del propduct" class="w-50">
+            <img src="assets/props_comprar/<?=$prop["foto"]?>" alt="imagen del propduct" class="w-25">
         </div>
         <div class="row">
             <div class="col-6 my-5">
                 <div class="card my-2">
                     <div class="card-body">
-                    <h2><?= number_format($prop["precio"], 0, ',', '.') ?> USD</h2>
+                    <h2><?= number_format($prop["precio"], 0, ',', '.') ?> USD 
+                    <span class="text-expensas">
+                                    <?php
+                                        if ($prop["expensas"] > 0) {
+                                            echo '+ ' . number_format($prop["expensas"], 0, ',', '.') . ' ARS' . ' expensas';
+                                        }
+                                    ?>
+                    </span>
+                    </h2> 
                     <hr>
                         <p class="text-dark">
-                            <b><?=($prop["superficie_total"])?></b> m&sup2; | 
+                            <b><?=($prop["superficie_total"])?></b> m&sup2; totales | 
+                            <b><?=($prop["superficie_cubierta"])?></b> m&sup2; cubiertos | 
                             <b><?=($prop["ambientes"])?></b> ambientes | 
                             <b><?=($prop["baños"])?> </b>baños |
                             <b><?=($prop["dormitorios"])?> </b>habitaciones |
