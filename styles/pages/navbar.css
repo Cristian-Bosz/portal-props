@@ -1,0 +1,33 @@
+
+/*navbar*/
+.bg-nav{
+    background: linear-gradient(to left, #eecfe3, #fffcdc);
+  }
+  #btn-navlogin{
+    background-color: transparent;
+    color: #43173d;
+    font-weight: 700;
+    border: 3px solid #43173d;
+  }
+  #btn-navlogin:hover{
+    background-color: #612859;
+    color: white;
+    font-weight: 700;
+    border: 3px solid #612859;
+  }
+  #text-nav{
+    color: #612859; 
+  }
+
+  /*navbar*/
+#btn-admin{
+    background-color: #43173d;
+      border-color: #43173d;
+      color: #f6f6f6;
+      text-decoration: none;
+  }
+  #btn-admin:hover{
+    background-color: #64225b;
+  }
+  
+  

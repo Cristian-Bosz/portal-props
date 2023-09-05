@@ -1,0 +1,52 @@
+
+/*cards testimonios*/
+.advice-container {
+    font-family: "Manrope", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 320px;
+    height: auto;
+    background-color: hsl(217, 19%, 24%);
+    border-radius: 10px 100px / 120px;
+    padding: 30px 16px 0 16px;
+  }
+  .paragraph {
+    font-size: 17px;
+    background-image: linear-gradient(to right, hsl(150, 100%, 66%),#C031B5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    /*Reason: there are some contrast issues*/
+  }
+  .advice-details {
+    color: hsl(193, 38%, 86%);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 30px 0;
+    line-height: 25px;
+    text-wrap: balance;
+    letter-spacing: 1px;
+  }
+  .pattern-divider path {
+    fill: hsl(217, 19%, 38%);
+  }
+  .btn-testimonio {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: none;
+    background: #00e673;
+    margin-top: 20px;
+    margin-bottom: -25px;
+    cursor: pointer;
+    transition: 0.3s all
+  }
+  .btn-testimonio:hover {
+    box-shadow: 0rem 0rem 10px 10px rgba(82, 255, 168, 0.5);
+  }
+  
+  
